@@ -1,0 +1,21 @@
+﻿using NbaStats.DAL.Data;
+
+namespace NbaStats.DAL.Interfaces;
+
+public interface IPlayerRepository : IRepository<Player>, IPlayerStatRepository, IPlayerSeasonAverageRepository
+{
+    Task<IEnumerable<Player>> GetPlayersByNameAsync();
+    
+    Task<IEnumerable<Player>> GetPlayersByLastNameAsync();
+
+    Task<IEnumerable<Player>> GetPlayersByTeamAsync(int teamId);
+    
+    Task<IEnumerable<Player>> GetPlayersByPositionAsync(string position);
+    
+    Task<IEnumerable<Player>> GetPlayersByHeightAsync(int height);
+    
+    Task<IEnumerable<Player>> GetPlayersByWeightAsync(int weight);
+    
+    Task<IEnumerable<Player>> GetPlayersByAgeAsync(int age);
+    
+}

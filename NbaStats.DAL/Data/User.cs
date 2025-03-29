@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class User
+public class User
 {
     public int Userid { get; set; }
 
@@ -13,5 +10,5 @@ public partial class User
 
     public string Role { get; set; } = null!;
 
-    public virtual ICollection<Userpreference> Userpreferences { get; set; } = new List<Userpreference>();
+    public virtual ICollection<UserPreference> Userpreferences { get; set; } = new List<UserPreference>();
 }

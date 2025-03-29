@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class Player
+public class Player
 {
     public int Playerid { get; set; }
 
@@ -19,11 +16,11 @@ public partial class Player
 
     public decimal? Weight { get; set; }
 
-    public virtual ICollection<Playerseasonaverage> Playerseasonaverages { get; set; } = new List<Playerseasonaverage>();
+    public virtual ICollection<PlayerSeasonAverage> Playerseasonaverages { get; set; } = new List<PlayerSeasonAverage>();
 
-    public virtual ICollection<Playerstat> Playerstats { get; set; } = new List<Playerstat>();
+    public virtual ICollection<PlayerStat> Playerstats { get; set; } = new List<PlayerStat>();
 
     public virtual Team? Team { get; set; }
 
-    public virtual ICollection<Userpreference> Userpreferences { get; set; } = new List<Userpreference>();
+    public virtual ICollection<UserPreference> Userpreferences { get; set; } = new List<UserPreference>();
 }

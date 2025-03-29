@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class Match
+public class Match
 {
     public int Matchid { get; set; }
 
@@ -23,9 +20,9 @@ public partial class Match
 
     public virtual Team? Hometeam { get; set; }
 
-    public virtual ICollection<Playerstat> Playerstats { get; set; } = new List<Playerstat>();
+    public virtual ICollection<PlayerStat> Playerstats { get; set; } = new List<PlayerStat>();
 
     public virtual Season? Season { get; set; }
 
-    public virtual ICollection<Teamstat> Teamstats { get; set; } = new List<Teamstat>();
+    public virtual ICollection<TeamStat> Teamstats { get; set; } = new List<TeamStat>();
 }

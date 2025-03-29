@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class Userpreference
+public class UserPreference
 {
     public int Userpreferencesid { get; set; }
 

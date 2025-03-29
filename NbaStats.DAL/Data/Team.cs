@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class Team
+public class Team
 {
     public int Teamid { get; set; }
 
@@ -21,9 +18,9 @@ public partial class Team
 
     public virtual ICollection<Player> Players { get; set; } = new List<Player>();
 
-    public virtual ICollection<Teamseasonaverage> Teamseasonaverages { get; set; } = new List<Teamseasonaverage>();
+    public virtual ICollection<TeamSeasonAverage> Teamseasonaverages { get; set; } = new List<TeamSeasonAverage>();
 
-    public virtual ICollection<Teamstat> Teamstats { get; set; } = new List<Teamstat>();
+    public virtual ICollection<TeamStat> Teamstats { get; set; } = new List<TeamStat>();
 
-    public virtual ICollection<Userpreference> Userpreferences { get; set; } = new List<Userpreference>();
+    public virtual ICollection<UserPreference> Userpreferences { get; set; } = new List<UserPreference>();
 }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace NbaStats.DAL.Data;
 
-public partial class Playerseasonaverage
+public class PlayerSeasonAverage
 {
     public int Playerseasonaveragesid { get; set; }
 

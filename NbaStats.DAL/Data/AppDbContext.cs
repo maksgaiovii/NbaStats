@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace NbaStats.DAL.Data;
 
@@ -19,21 +17,21 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Player> Players { get; set; }
 
-    public virtual DbSet<Playerseasonaverage> Playerseasonaverages { get; set; }
+    public virtual DbSet<PlayerSeasonAverage> Playerseasonaverages { get; set; }
 
-    public virtual DbSet<Playerstat> Playerstats { get; set; }
+    public virtual DbSet<PlayerStat> Playerstats { get; set; }
 
     public virtual DbSet<Season> Seasons { get; set; }
 
     public virtual DbSet<Team> Teams { get; set; }
 
-    public virtual DbSet<Teamseasonaverage> Teamseasonaverages { get; set; }
+    public virtual DbSet<TeamSeasonAverage> Teamseasonaverages { get; set; }
 
-    public virtual DbSet<Teamstat> Teamstats { get; set; }
+    public virtual DbSet<TeamStat> Teamstats { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
-    public virtual DbSet<Userpreference> Userpreferences { get; set; }
+    public virtual DbSet<UserPreference> Userpreferences { get; set; }
 
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -98,7 +96,7 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("player_teamid_fkey");
         });
 
-        modelBuilder.Entity<Playerseasonaverage>(entity =>
+        modelBuilder.Entity<PlayerSeasonAverage>(entity =>
         {
             entity.HasKey(e => e.Playerseasonaveragesid).HasName("playerseasonaverages_pkey");
 
@@ -143,7 +141,7 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("playerseasonaverages_seasonid_fkey");
         });
 
-        modelBuilder.Entity<Playerstat>(entity =>
+        modelBuilder.Entity<PlayerStat>(entity =>
         {
             entity.HasKey(e => e.Playerstatsid).HasName("playerstats_pkey");
 
@@ -233,7 +231,7 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("name");
         });
 
-        modelBuilder.Entity<Teamseasonaverage>(entity =>
+        modelBuilder.Entity<TeamSeasonAverage>(entity =>
         {
             entity.HasKey(e => e.Teamseasonaveragesid).HasName("teamseasonaverages_pkey");
 
@@ -270,7 +268,7 @@ public partial class AppDbContext : DbContext
                 .HasConstraintName("teamseasonaverages_teamid_fkey");
         });
 
-        modelBuilder.Entity<Teamstat>(entity =>
+        modelBuilder.Entity<TeamStat>(entity =>
         {
             entity.HasKey(e => e.Teamstatsid).HasName("teamstats_pkey");
 
@@ -347,7 +345,7 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("role");
         });
 
-        modelBuilder.Entity<Userpreference>(entity =>
+        modelBuilder.Entity<UserPreference>(entity =>
         {
             entity.HasKey(e => e.Userpreferencesid).HasName("userpreferences_pkey");
 

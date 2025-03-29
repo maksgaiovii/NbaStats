@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class Teamstat
+public class PlayerStat
 {
-    public int Teamstatsid { get; set; }
+    public int Playerstatsid { get; set; }
+
+    public int? Playerid { get; set; }
 
     public int? Matchid { get; set; }
-
-    public int? Teamid { get; set; }
-
-    public int? Wins { get; set; }
-
-    public int? Losses { get; set; }
 
     public int? Fgmade { get; set; }
 
@@ -35,7 +28,9 @@ public partial class Teamstat
 
     public int? Steals { get; set; }
 
+    public decimal? Minutesplayed { get; set; }
+
     public virtual Match? Match { get; set; }
 
-    public virtual Team? Team { get; set; }
+    public virtual Player? Player { get; set; }
 }

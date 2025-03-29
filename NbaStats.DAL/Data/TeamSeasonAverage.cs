@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace NbaStats.DAL.Data;
 
-namespace NbaStats.DAL.Data;
-
-public partial class Teamseasonaverage
+public class TeamSeasonAverage
 {
     public int Teamseasonaveragesid { get; set; }
 
