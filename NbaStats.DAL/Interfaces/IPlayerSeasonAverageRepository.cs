@@ -4,7 +4,6 @@ namespace NbaStats.DAL.Interfaces;
 
 public interface IPlayerSeasonAverageRepository
 {
-    Task<PlayerSeasonAverage?> GetPlayerSeasonAverageAsync(int playerId, int seasonId);
 
     Task<IEnumerable<PlayerSeasonAverage>> GetPlayersWithMostPointsAverageAsync(int topN);
 
