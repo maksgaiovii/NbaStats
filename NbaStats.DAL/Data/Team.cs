@@ -2,7 +2,7 @@
 
 public class Team
 {
-    public int Teamid { get; set; }
+    public int TeamId { get; set; }
 
     public string Name { get; set; } = null!;
 
@@ -12,15 +12,15 @@ public class Team
 
     public string? Division { get; set; }
 
-    public virtual ICollection<Match> MatchAwayteams { get; set; } = new List<Match>();
+    public virtual ICollection<Match> MatchAwayTeams { get; set; } = new List<Match>();
 
-    public virtual ICollection<Match> MatchHometeams { get; set; } = new List<Match>();
+    public virtual ICollection<Match> MatchHomeTeams { get; set; } = new List<Match>();
 
     public virtual ICollection<Player> Players { get; set; } = new List<Player>();
 
-    public virtual ICollection<TeamSeasonAverage> Teamseasonaverages { get; set; } = new List<TeamSeasonAverage>();
+    public virtual ICollection<TeamSeasonAverage> TeamSeasonAverages { get; set; } = new List<TeamSeasonAverage>();
 
-    public virtual ICollection<TeamStat> Teamstats { get; set; } = new List<TeamStat>();
+    public virtual ICollection<TeamStat> TeamStats { get; set; } = new List<TeamStat>();
 
-    public virtual ICollection<UserPreference> Userpreferences { get; set; } = new List<UserPreference>();
+    public virtual ICollection<UserPreference> UserPreferences { get; set; } = new List<UserPreference>();
 }

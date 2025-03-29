@@ -2,7 +2,7 @@
 
 public class User
 {
-    public int Userid { get; set; }
+    public int UserId { get; set; }
 
     public string Name { get; set; } = null!;
 
@@ -10,5 +10,5 @@ public class User
 
     public string Role { get; set; } = null!;
 
-    public virtual ICollection<UserPreference> Userpreferences { get; set; } = new List<UserPreference>();
+    public virtual ICollection<UserPreference> UserPreferences { get; set; } = new List<UserPreference>();
 }

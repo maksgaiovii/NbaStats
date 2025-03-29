@@ -38,41 +38,41 @@ public partial class AppDbContext : DbContext
     {
         modelBuilder.Entity<Match>(entity =>
         {
-            entity.HasKey(e => e.Matchid).HasName("match_pkey");
+            entity.HasKey(e => e.MatchId).HasName("match_pkey");
 
             entity.ToTable("match");
 
-            entity.Property(e => e.Matchid).HasColumnName("matchid");
-            entity.Property(e => e.Awayscore).HasColumnName("awayscore");
-            entity.Property(e => e.Awayteamid).HasColumnName("awayteamid");
+            entity.Property(e => e.MatchId).HasColumnName("matchid");
+            entity.Property(e => e.AwayScore).HasColumnName("awayscore");
+            entity.Property(e => e.AwayTeamId).HasColumnName("awayteamid");
             entity.Property(e => e.Date).HasColumnName("date");
-            entity.Property(e => e.Homescore).HasColumnName("homescore");
-            entity.Property(e => e.Hometeamid).HasColumnName("hometeamid");
-            entity.Property(e => e.Seasonid).HasColumnName("seasonid");
+            entity.Property(e => e.HomeScore).HasColumnName("homescore");
+            entity.Property(e => e.HomeTeamId).HasColumnName("hometeamid");
+            entity.Property(e => e.SeasonId).HasColumnName("seasonid");
 
-            entity.HasOne(d => d.Awayteam).WithMany(p => p.MatchAwayteams)
-                .HasForeignKey(d => d.Awayteamid)
+            entity.HasOne(d => d.AwayTeam).WithMany(p => p.MatchAwayTeams)
+                .HasForeignKey(d => d.AwayTeamId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("match_awayteamid_fkey");
 
-            entity.HasOne(d => d.Hometeam).WithMany(p => p.MatchHometeams)
-                .HasForeignKey(d => d.Hometeamid)
+            entity.HasOne(d => d.HomeTeam).WithMany(p => p.MatchHomeTeams)
+                .HasForeignKey(d => d.HomeTeamId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("match_hometeamid_fkey");
 
             entity.HasOne(d => d.Season).WithMany(p => p.Matches)
-                .HasForeignKey(d => d.Seasonid)
+                .HasForeignKey(d => d.SeasonId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("match_seasonid_fkey");
         });
 
         modelBuilder.Entity<Player>(entity =>
         {
-            entity.HasKey(e => e.Playerid).HasName("player_pkey");
+            entity.HasKey(e => e.PlayerId).HasName("player_pkey");
 
             entity.ToTable("player");
 
-            entity.Property(e => e.Playerid).HasColumnName("playerid");
+            entity.Property(e => e.PlayerId).HasColumnName("playerid");
             entity.Property(e => e.Height)
                 .HasPrecision(5, 2)
                 .HasColumnName("height");
@@ -85,90 +85,90 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Surname)
                 .HasMaxLength(50)
                 .HasColumnName("surname");
-            entity.Property(e => e.Teamid).HasColumnName("teamid");
+            entity.Property(e => e.TeamId).HasColumnName("teamid");
             entity.Property(e => e.Weight)
                 .HasPrecision(5, 2)
                 .HasColumnName("weight");
 
             entity.HasOne(d => d.Team).WithMany(p => p.Players)
-                .HasForeignKey(d => d.Teamid)
+                .HasForeignKey(d => d.TeamId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("player_teamid_fkey");
         });
 
         modelBuilder.Entity<PlayerSeasonAverage>(entity =>
         {
-            entity.HasKey(e => e.Playerseasonaveragesid).HasName("playerseasonaverages_pkey");
+            entity.HasKey(e => e.PlayerSeasonAveragesId).HasName("playerseasonaverages_pkey");
 
             entity.ToTable("playerseasonaverages");
 
-            entity.Property(e => e.Playerseasonaveragesid).HasColumnName("playerseasonaveragesid");
-            entity.Property(e => e.Avgassists)
+            entity.Property(e => e.PlayerSeasonAveragesId).HasColumnName("playerseasonaveragesid");
+            entity.Property(e => e.AvgAssists)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgassists");
-            entity.Property(e => e.Avgminutesplayed)
+            entity.Property(e => e.AvgMinutesPlayed)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgminutesplayed");
-            entity.Property(e => e.Avgpoints)
+            entity.Property(e => e.AvgPoints)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgpoints");
-            entity.Property(e => e.Avgrebounds)
+            entity.Property(e => e.AvgRebounds)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgrebounds");
-            entity.Property(e => e.Avgsteals)
+            entity.Property(e => e.AvgSteals)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgsteals");
-            entity.Property(e => e.Avgturnovers)
+            entity.Property(e => e.AvgTurnovers)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgturnovers");
-            entity.Property(e => e.Playerid).HasColumnName("playerid");
-            entity.Property(e => e.Seasonid).HasColumnName("seasonid");
+            entity.Property(e => e.PlayerId).HasColumnName("playerid");
+            entity.Property(e => e.SeasonId).HasColumnName("seasonid");
 
-            entity.HasOne(d => d.Player).WithMany(p => p.Playerseasonaverages)
-                .HasForeignKey(d => d.Playerid)
+            entity.HasOne(d => d.Player).WithMany(p => p.PlayerSeasonAverages)
+                .HasForeignKey(d => d.PlayerId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("playerseasonaverages_playerid_fkey");
 
-            entity.HasOne(d => d.Season).WithMany(p => p.Playerseasonaverages)
-                .HasForeignKey(d => d.Seasonid)
+            entity.HasOne(d => d.Season).WithMany(p => p.PlayerSeasonAverages)
+                .HasForeignKey(d => d.SeasonId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("playerseasonaverages_seasonid_fkey");
         });
 
         modelBuilder.Entity<PlayerStat>(entity =>
         {
-            entity.HasKey(e => e.Playerstatsid).HasName("playerstats_pkey");
+            entity.HasKey(e => e.PlayerStatsId).HasName("playerstats_pkey");
 
             entity.ToTable("playerstats");
 
-            entity.Property(e => e.Playerstatsid).HasColumnName("playerstatsid");
+            entity.Property(e => e.PlayerStatsId).HasColumnName("playerstatsid");
             entity.Property(e => e.Assists)
                 .HasDefaultValue(0)
                 .HasColumnName("assists");
-            entity.Property(e => e.Fgattempted)
+            entity.Property(e => e.FgAttempted)
                 .HasDefaultValue(0)
                 .HasColumnName("fgattempted");
-            entity.Property(e => e.Fgmade)
+            entity.Property(e => e.FgMade)
                 .HasDefaultValue(0)
                 .HasColumnName("fgmade");
-            entity.Property(e => e.Freethrowsattempted)
+            entity.Property(e => e.FreeThrowsAttempted)
                 .HasDefaultValue(0)
                 .HasColumnName("freethrowsattempted");
-            entity.Property(e => e.Freethrowsmade)
+            entity.Property(e => e.FreeThrowsMade)
                 .HasDefaultValue(0)
                 .HasColumnName("freethrowsmade");
-            entity.Property(e => e.Matchid).HasColumnName("matchid");
-            entity.Property(e => e.Minutesplayed)
+            entity.Property(e => e.MatchId).HasColumnName("matchid");
+            entity.Property(e => e.MinutesPlayed)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("minutesplayed");
-            entity.Property(e => e.Playerid).HasColumnName("playerid");
+            entity.Property(e => e.PlayerId).HasColumnName("playerid");
             entity.Property(e => e.Points)
                 .HasDefaultValue(0)
                 .HasColumnName("points");
@@ -178,45 +178,45 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Steals)
                 .HasDefaultValue(0)
                 .HasColumnName("steals");
-            entity.Property(e => e.Threepointersattempted)
+            entity.Property(e => e.ThreePointersAttempted)
                 .HasDefaultValue(0)
                 .HasColumnName("threepointersattempted");
-            entity.Property(e => e.Threepointersmade)
+            entity.Property(e => e.ThreePointersMade)
                 .HasDefaultValue(0)
                 .HasColumnName("threepointersmade");
 
-            entity.HasOne(d => d.Match).WithMany(p => p.Playerstats)
-                .HasForeignKey(d => d.Matchid)
+            entity.HasOne(d => d.Match).WithMany(p => p.PlayerStats)
+                .HasForeignKey(d => d.MatchId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("playerstats_matchid_fkey");
 
-            entity.HasOne(d => d.Player).WithMany(p => p.Playerstats)
-                .HasForeignKey(d => d.Playerid)
+            entity.HasOne(d => d.Player).WithMany(p => p.PlayerStats)
+                .HasForeignKey(d => d.PlayerId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("playerstats_playerid_fkey");
         });
 
         modelBuilder.Entity<Season>(entity =>
         {
-            entity.HasKey(e => e.Seasonid).HasName("season_pkey");
+            entity.HasKey(e => e.SeasonId).HasName("season_pkey");
 
             entity.ToTable("season");
 
             entity.HasIndex(e => e.Year, "season_year_key").IsUnique();
 
-            entity.Property(e => e.Seasonid).HasColumnName("seasonid");
-            entity.Property(e => e.Enddate).HasColumnName("enddate");
-            entity.Property(e => e.Startdate).HasColumnName("startdate");
+            entity.Property(e => e.SeasonId).HasColumnName("seasonid");
+            entity.Property(e => e.EndDate).HasColumnName("enddate");
+            entity.Property(e => e.StartDate).HasColumnName("startdate");
             entity.Property(e => e.Year).HasColumnName("year");
         });
 
         modelBuilder.Entity<Team>(entity =>
         {
-            entity.HasKey(e => e.Teamid).HasName("team_pkey");
+            entity.HasKey(e => e.TeamId).HasName("team_pkey");
 
             entity.ToTable("team");
 
-            entity.Property(e => e.Teamid).HasColumnName("teamid");
+            entity.Property(e => e.TeamId).HasColumnName("teamid");
             entity.Property(e => e.City)
                 .HasMaxLength(100)
                 .HasColumnName("city");
@@ -233,67 +233,67 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<TeamSeasonAverage>(entity =>
         {
-            entity.HasKey(e => e.Teamseasonaveragesid).HasName("teamseasonaverages_pkey");
+            entity.HasKey(e => e.TeamSeasonAveragesId).HasName("teamseasonaverages_pkey");
 
             entity.ToTable("teamseasonaverages");
 
-            entity.Property(e => e.Teamseasonaveragesid).HasColumnName("teamseasonaveragesid");
-            entity.Property(e => e.Avgassists)
+            entity.Property(e => e.TeamSeasonAveragesId).HasColumnName("teamseasonaveragesid");
+            entity.Property(e => e.AvgAssists)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgassists");
-            entity.Property(e => e.Avgpoints)
+            entity.Property(e => e.AvgPoints)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgpoints");
-            entity.Property(e => e.Avgrebounds)
+            entity.Property(e => e.AvgRebounds)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgrebounds");
-            entity.Property(e => e.Avgturnovers)
+            entity.Property(e => e.AvgTurnovers)
                 .HasPrecision(5, 2)
                 .HasDefaultValueSql("0")
                 .HasColumnName("avgturnovers");
-            entity.Property(e => e.Seasonid).HasColumnName("seasonid");
-            entity.Property(e => e.Teamid).HasColumnName("teamid");
+            entity.Property(e => e.SeasonId).HasColumnName("seasonid");
+            entity.Property(e => e.TeamId).HasColumnName("teamid");
 
-            entity.HasOne(d => d.Season).WithMany(p => p.Teamseasonaverages)
-                .HasForeignKey(d => d.Seasonid)
+            entity.HasOne(d => d.Season).WithMany(p => p.TeamSeasonAverages)
+                .HasForeignKey(d => d.SeasonId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("teamseasonaverages_seasonid_fkey");
 
-            entity.HasOne(d => d.Team).WithMany(p => p.Teamseasonaverages)
-                .HasForeignKey(d => d.Teamid)
+            entity.HasOne(d => d.Team).WithMany(p => p.TeamSeasonAverages)
+                .HasForeignKey(d => d.TeamId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("teamseasonaverages_teamid_fkey");
         });
 
         modelBuilder.Entity<TeamStat>(entity =>
         {
-            entity.HasKey(e => e.Teamstatsid).HasName("teamstats_pkey");
+            entity.HasKey(e => e.TeamStatsId).HasName("teamstats_pkey");
 
             entity.ToTable("teamstats");
 
-            entity.Property(e => e.Teamstatsid).HasColumnName("teamstatsid");
+            entity.Property(e => e.TeamStatsId).HasColumnName("teamstatsid");
             entity.Property(e => e.Assists)
                 .HasDefaultValue(0)
                 .HasColumnName("assists");
-            entity.Property(e => e.Fgattempted)
+            entity.Property(e => e.FgAttempted)
                 .HasDefaultValue(0)
                 .HasColumnName("fgattempted");
-            entity.Property(e => e.Fgmade)
+            entity.Property(e => e.FgMade)
                 .HasDefaultValue(0)
                 .HasColumnName("fgmade");
-            entity.Property(e => e.Freethrowsattempted)
+            entity.Property(e => e.FreeThrowsAttempted)
                 .HasDefaultValue(0)
                 .HasColumnName("freethrowsattempted");
-            entity.Property(e => e.Freethrowsmade)
+            entity.Property(e => e.FreeThrowsMade)
                 .HasDefaultValue(0)
                 .HasColumnName("freethrowsmade");
             entity.Property(e => e.Losses)
                 .HasDefaultValue(0)
                 .HasColumnName("losses");
-            entity.Property(e => e.Matchid).HasColumnName("matchid");
+            entity.Property(e => e.MatchId).HasColumnName("matchid");
             entity.Property(e => e.Points)
                 .HasDefaultValue(0)
                 .HasColumnName("points");
@@ -303,37 +303,37 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Steals)
                 .HasDefaultValue(0)
                 .HasColumnName("steals");
-            entity.Property(e => e.Teamid).HasColumnName("teamid");
-            entity.Property(e => e.Threepointersattempted)
+            entity.Property(e => e.TeamId).HasColumnName("teamid");
+            entity.Property(e => e.ThreePointersAttempted)
                 .HasDefaultValue(0)
                 .HasColumnName("threepointersattempted");
-            entity.Property(e => e.Threepointersmade)
+            entity.Property(e => e.ThreePointersMade)
                 .HasDefaultValue(0)
                 .HasColumnName("threepointersmade");
             entity.Property(e => e.Wins)
                 .HasDefaultValue(0)
                 .HasColumnName("wins");
 
-            entity.HasOne(d => d.Match).WithMany(p => p.Teamstats)
-                .HasForeignKey(d => d.Matchid)
+            entity.HasOne(d => d.Match).WithMany(p => p.TeamStats)
+                .HasForeignKey(d => d.MatchId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("teamstats_matchid_fkey");
 
-            entity.HasOne(d => d.Team).WithMany(p => p.Teamstats)
-                .HasForeignKey(d => d.Teamid)
+            entity.HasOne(d => d.Team).WithMany(p => p.TeamStats)
+                .HasForeignKey(d => d.TeamId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("teamstats_teamid_fkey");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Userid).HasName("user_pkey");
+            entity.HasKey(e => e.UserId).HasName("user_pkey");
 
             entity.ToTable("user");
 
             entity.HasIndex(e => e.Email, "user_email_key").IsUnique();
 
-            entity.Property(e => e.Userid).HasColumnName("userid");
+            entity.Property(e => e.UserId).HasColumnName("userid");
             entity.Property(e => e.Email)
                 .HasMaxLength(100)
                 .HasColumnName("email");
@@ -347,26 +347,26 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<UserPreference>(entity =>
         {
-            entity.HasKey(e => e.Userpreferencesid).HasName("userpreferences_pkey");
+            entity.HasKey(e => e.UserPreferencesId).HasName("userpreferences_pkey");
 
             entity.ToTable("userpreferences");
 
-            entity.Property(e => e.Userpreferencesid).HasColumnName("userpreferencesid");
-            entity.Property(e => e.Playerid).HasColumnName("playerid");
-            entity.Property(e => e.Teamid).HasColumnName("teamid");
+            entity.Property(e => e.UserPreferencesId).HasColumnName("userpreferencesid");
+            entity.Property(e => e.PlayerId).HasColumnName("playerid");
+            entity.Property(e => e.TeamId).HasColumnName("teamid");
             entity.Property(e => e.Userid).HasColumnName("userid");
 
-            entity.HasOne(d => d.Player).WithMany(p => p.Userpreferences)
-                .HasForeignKey(d => d.Playerid)
+            entity.HasOne(d => d.Player).WithMany(p => p.UserPreferences)
+                .HasForeignKey(d => d.PlayerId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("userpreferences_playerid_fkey");
 
-            entity.HasOne(d => d.Team).WithMany(p => p.Userpreferences)
-                .HasForeignKey(d => d.Teamid)
+            entity.HasOne(d => d.Team).WithMany(p => p.UserPreferences)
+                .HasForeignKey(d => d.TeamId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("userpreferences_teamid_fkey");
 
-            entity.HasOne(d => d.User).WithMany(p => p.Userpreferences)
+            entity.HasOne(d => d.User).WithMany(p => p.UserPreferences)
                 .HasForeignKey(d => d.Userid)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("userpreferences_userid_fkey");

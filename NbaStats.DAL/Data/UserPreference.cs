@@ -2,13 +2,13 @@
 
 public class UserPreference
 {
-    public int Userpreferencesid { get; set; }
+    public int UserPreferencesId { get; set; }
 
     public int? Userid { get; set; }
 
-    public int? Teamid { get; set; }
+    public int? TeamId { get; set; }
 
-    public int? Playerid { get; set; }
+    public int? PlayerId { get; set; }
 
     public virtual Player? Player { get; set; }
 

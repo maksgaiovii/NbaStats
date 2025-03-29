@@ -2,7 +2,7 @@
 
 public class Player
 {
-    public int Playerid { get; set; }
+    public int PlayerId { get; set; }
 
     public string Name { get; set; } = null!;
 
@@ -10,17 +10,17 @@ public class Player
 
     public string Position { get; set; } = null!;
 
-    public int? Teamid { get; set; }
+    public int? TeamId { get; set; }
 
     public decimal? Height { get; set; }
 
     public decimal? Weight { get; set; }
 
-    public virtual ICollection<PlayerSeasonAverage> Playerseasonaverages { get; set; } = new List<PlayerSeasonAverage>();
+    public virtual ICollection<PlayerSeasonAverage> PlayerSeasonAverages { get; set; } = new List<PlayerSeasonAverage>();
 
-    public virtual ICollection<PlayerStat> Playerstats { get; set; } = new List<PlayerStat>();
+    public virtual ICollection<PlayerStat> PlayerStats { get; set; } = new List<PlayerStat>();
 
     public virtual Team? Team { get; set; }
 
-    public virtual ICollection<UserPreference> Userpreferences { get; set; } = new List<UserPreference>();
+    public virtual ICollection<UserPreference> UserPreferences { get; set; } = new List<UserPreference>();
 }
