@@ -28,15 +28,24 @@ public class MatchRepository : BaseRepository<Match>, IMatchRepository
     
     public async Task<IEnumerable<Match>> GetMatchesPlayedByPlayerAsync(int playerId)
     {
-        //TODO: Implement when TeamRepository is implemented
-        
-        throw new NotImplementedException();    
+        var matchIds = await context.Set<PlayerStat>()
+            .Where(ps => ps.PlayerId == playerId)
+            .Select(ps => ps.MatchId)
+            .Distinct()
+            .ToListAsync();
+    
+        return await dbSet
+            .Where(m => matchIds.Contains(m.MatchId))
+            .ToListAsync();
     }
     
     public async Task<IEnumerable<Match>> GetMatchesPlayedByPlayerInSeasonAsync(int playerId, int seasonId)
     {
-        //TODO: Implement when TeamRepository and SeasonRepository is implemented
-        throw new NotImplementedException();
+        var player = await context.Set<Player>().FindAsync(playerId);
+        if (player == null)
+            return [];
+            
+        return await dbSet.Where(m => (m.HomeTeamId == player.TeamId || m.AwayTeamId == player.TeamId) && m.SeasonId==seasonId).ToListAsync();
     }
     
     public async Task<IEnumerable<Match>> GetMatchesPlayedByTeamInSeasonAsync(int teamId, int seasonId)
