@@ -8,9 +8,9 @@ public class Team
 
     public string City { get; set; } = null!;
 
-    public string? Conference { get; set; }
+    public required string Conference { get; set; }
 
-    public string? Division { get; set; }
+    public required string Division { get; set; }
 
     public virtual ICollection<Match> MatchAwayTeams { get; set; } = new List<Match>();
 

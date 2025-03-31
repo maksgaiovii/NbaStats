@@ -10,17 +10,19 @@ public class Player
 
     public string Position { get; set; } = null!;
 
-    public int? TeamId { get; set; }
+    public int TeamId { get; set; }
 
-    public decimal? Height { get; set; }
+    public decimal Height { get; set; }
 
-    public decimal? Weight { get; set; }
+    public decimal Weight { get; set; }
 
+    public DateTime BirthDate { get; set; }
+    
     public virtual ICollection<PlayerSeasonAverage> PlayerSeasonAverages { get; set; } = new List<PlayerSeasonAverage>();
 
     public virtual ICollection<PlayerStat> PlayerStats { get; set; } = new List<PlayerStat>();
 
-    public virtual Team? Team { get; set; }
+    public virtual required Team Team { get; set; }
 
     public virtual ICollection<UserPreference> UserPreferences { get; set; } = new List<UserPreference>();
 }
