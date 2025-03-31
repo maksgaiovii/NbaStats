@@ -1,8 +1,9 @@
-﻿using NbaStats.DAL.Data;
+﻿using System.Linq.Expressions;
+using NbaStats.DAL.Data;
 
 namespace NbaStats.DAL.Interfaces;
 
-public interface IPlayerRepository : IRepository<Player>, IPlayerStatRepository, IPlayerSeasonAverageRepository
+public interface IPlayerRepository : IRepository<Player>
 {
     Task<IEnumerable<Player>> GetPlayersByNameAsync();
     
@@ -17,5 +18,11 @@ public interface IPlayerRepository : IRepository<Player>, IPlayerStatRepository,
     Task<IEnumerable<Player>> GetPlayersByWeightAsync(int weight);
     
     Task<IEnumerable<Player>> GetPlayersByAgeAsync(int age);
+    
+    Task<IEnumerable<Player>> GetPlayersWithMostStatAverageAsync(int topN,
+            Expression<Func<PlayerSeasonAverage, double>> statSelector);
+    
+    Task<IEnumerable<Player>> GetPlayersWithMostStatAsync(int topN,
+        Expression<Func<PlayerStat, double>> statSelector);
     
 }

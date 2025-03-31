@@ -2,35 +2,34 @@
 using NbaStats.DAL.Interfaces;
 
 namespace NbaStats.DAL.Repositories;
-
-public class BaseRepository<T> : IRepository<T> where T : class
+public abstract class BaseRepository<T> : IRepository<T> where T : class
 {
     protected readonly DbContext context;
     protected readonly DbSet<T> dbSet;
 
-    public BaseRepository(DbContext context)
+    protected BaseRepository(DbContext context)
     {
         this.context = context;
         dbSet = this.context.Set<T>();
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public virtual async Task<IEnumerable<T>> GetAllAsync()
     {
         return await dbSet.ToListAsync();
     }
 
-    public async Task<T?> GetByIdAsync(int id)
+    public virtual async Task<T?> GetByIdAsync(int id)
     {
         return await dbSet.FindAsync(id);
     }
 
-    public async Task AddAsync(T entity)
+    public virtual async Task AddAsync(T entity)
     {
         await dbSet.AddAsync(entity);
         await context.SaveChangesAsync();
     }
 
-    public async Task<bool> UpdateAsync(T entity)
+    public virtual async Task<bool> UpdateAsync(T entity)
     {
         var existingEntity = await context.Set<T>().FindAsync(entity);
         if (existingEntity == null)
@@ -41,7 +40,7 @@ public class BaseRepository<T> : IRepository<T> where T : class
         return affectedRows > 0;
     }
 
-    public async Task<bool> DeleteAsync(int id)
+    public virtual async Task<bool> DeleteAsync(int id)
     {
         var entity = await dbSet.FindAsync(id);
         if (entity != null)
