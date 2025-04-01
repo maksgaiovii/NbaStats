@@ -33,5 +33,10 @@ public class PlayerStatRepository : BaseRepository<PlayerStat>, IPlayerStatRepos
     {
         return await dbSet.Where(ps => ps.MatchId == gameId).ToListAsync();
     }
+    
+    public async Task<IEnumerable<PlayerStat>> GetPlayerStatsByPlayerAsync(int playerId)
+    {
+        return await dbSet.Where(ps => ps.PlayerId == playerId).ToListAsync();
+    }
 }
 

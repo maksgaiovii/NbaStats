@@ -23,10 +23,11 @@ public abstract class BaseRepository<T> : IRepository<T> where T : class
         return await dbSet.FindAsync(id);
     }
 
-    public virtual async Task AddAsync(T entity)
+    public virtual async Task<bool> AddAsync(T entity)
     {
-        await dbSet.AddAsync(entity);
-        await context.SaveChangesAsync();
+     await dbSet.AddAsync(entity);
+     var affectedRows = await context.SaveChangesAsync();
+     return affectedRows > 0;
     }
 
     public virtual async Task<bool> UpdateAsync(T entity)
@@ -40,16 +41,11 @@ public abstract class BaseRepository<T> : IRepository<T> where T : class
         return affectedRows > 0;
     }
 
-    public virtual async Task<bool> DeleteAsync(int id)
+    public virtual async Task<bool> DeleteAsync(T entity)
     {
-        var entity = await dbSet.FindAsync(id);
-        if (entity != null)
-        {
-            dbSet.Remove(entity);
-            await context.SaveChangesAsync();
-            return true;
-        }
-
-        return false;
+        dbSet.Remove(entity);
+        var affectedRows = await context.SaveChangesAsync();
+        return affectedRows > 0;
     }
+   
 }

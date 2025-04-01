@@ -10,4 +10,6 @@ public interface IPlayerStatRepository : IRepository<PlayerStat>
 
 
     Task<IEnumerable<PlayerStat>> GetPlayerStatsByGameAsync(int gameId);
+
+    Task<IEnumerable<PlayerStat>> GetPlayerStatsByPlayerAsync(int playerId);
 }

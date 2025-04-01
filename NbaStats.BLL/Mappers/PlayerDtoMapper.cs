@@ -9,7 +9,6 @@ public static class PlayerDtoMapper
         {
             return new PlayerDto
             {
-                PlayerId = player.PlayerId,
                 FullName = player.Name + " " + player.Surname,
                 Position = player.Position,
                 TeamName = player.Team.Name ?? string.Empty,

@@ -1,32 +1,19 @@
 ﻿using NbaStats.BLL.DTOs;
 using NbaStats.BLL.Mappers;
+using NbaStats.DAL.Data;
 using NbaStats.DAL.Interfaces;
 
 namespace NbaStats.BLL.Services;
 
-public class PlayerService
+public class PlayerService : Service<Player>
 {
     private readonly IPlayerRepository playerRepository;
     private readonly ITeamRepository teamRepository;
 
-    public PlayerService(IPlayerRepository playerRepository, ITeamRepository teamRepository)
+    public PlayerService(IPlayerRepository playerRepository, ITeamRepository teamRepository) : base(playerRepository)
     {
         this.playerRepository = playerRepository;
         this.teamRepository = teamRepository;
-    }
-
-    public async Task<PlayerDto> GetPlayerByIdAsync(int id)
-    {
-        var player = await playerRepository.GetByIdAsync(id);
-
-        return (player != null 
-            ? PlayerCreateDtoMapper.ToDto(player) : null) ?? throw new InvalidOperationException();
-    }
-
-    public async Task<List<PlayerDto>> GetAllPlayersAsync()
-    {
-        var players = await playerRepository.GetAllAsync();
-        return players.Select(PlayerCreateDtoMapper.ToDto).ToList();
     }
 
 
@@ -43,7 +30,7 @@ public class PlayerService
         return PlayerCreateDtoMapper.ToDto(playerEntity);
     }
 
-    public async Task<PlayerDto> UpdatePlayerAsync(int id, PlayerCreateDto playerDto)
+    public async Task<PlayerDto> UpdateAsync(int id, PlayerCreateDto playerDto)
     {
         var existingPlayer = await playerRepository.GetByIdAsync(id);
         if (existingPlayer == null)
@@ -67,12 +54,20 @@ public class PlayerService
         existingPlayer.BirthDate = playerDto.BirthDate;
 
         var isUpdated = await playerRepository.UpdateAsync(existingPlayer);
-        
-        return isUpdated ? PlayerCreateDtoMapper.ToDto(existingPlayer) : throw new InvalidOperationException("Failed to update player");
-    }
 
-    public async Task<bool> DeletePlayerAsync(int id)
+        return isUpdated
+            ? PlayerCreateDtoMapper.ToDto(existingPlayer)
+            : throw new InvalidOperationException("Failed to update player");
+    }
+    
+    public async Task<bool> DeleteAsync(PlayerDto playerDto)
     {
-        return await playerRepository.DeleteAsync(id);
+        var existingPlayer = await playerRepository.GetByIdAsync(playerDto.PlayerId);
+        if (existingPlayer == null)
+        {
+            throw new ArgumentException($"Player with ID {playerDto.PlayerId} not found");
+        }
+
+        return await playerRepository.DeleteAsync(existingPlayer);
     }
 }
