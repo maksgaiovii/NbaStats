@@ -1,18 +1,18 @@
-﻿using NbaStats.BLL.DTOs;
+﻿using NbaStats.DAL.Data;
 
 namespace NbaStats.BLL.Interfaces;
 
-public interface IMatchService : IService<MatchDto>
+public interface IMatchService : IService<Match>
 {
-    public Task<IEnumerable<MatchDto>> GetMatchesPlayedLastNightAsync();
+    public Task<IEnumerable<Match>> GetMatchesPlayedLastNightAsync();
     
-    public Task<IEnumerable<MatchDto>> GetMatchesPlayedBySeasonAsync(int seasonId);
+    public Task<IEnumerable<Match>> GetMatchesPlayedBySeasonAsync(int seasonId);
     
-    public Task<IEnumerable<MatchDto>> GetMatchesPlayedByTeamAsync(int teamId);
+    public Task<IEnumerable<Match>> GetMatchesPlayedByTeamAsync(int teamId);
     
-    public Task<IEnumerable<MatchDto>> GetMatchesPlayedByPlayerAsync(int playerId);
+    public Task<IEnumerable<Match>> GetMatchesPlayedByPlayerAsync(int playerId);
     
-    public Task<IEnumerable<MatchDto>> GetMatchesPlayedByPlayerInSeasonAsync(int playerId, int seasonId);
+    public Task<IEnumerable<Match>> GetMatchesPlayedByPlayerInSeasonAsync(int playerId, int seasonId);
     
-    public Task<IEnumerable<MatchDto>> GetMatchesPlayedByTeamInSeasonAsync(int teamId, int seasonId);
+    public Task<IEnumerable<Match>> GetMatchesPlayedByTeamInSeasonAsync(int teamId, int seasonId);
 }

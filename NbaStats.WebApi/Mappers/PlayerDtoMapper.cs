@@ -1,7 +1,7 @@
 ﻿using NbaStats.BLL.DTOs;
 using NbaStats.DAL.Data;
 
-namespace NbaStats.BLL.Mappers;
+namespace NbaStats.Mappers;
 
 public static class PlayerDtoMapper
 {

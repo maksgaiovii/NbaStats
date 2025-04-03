@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbaStats.Core", "NbaStats.Core\NbaStats.Core.csproj", "{C594FF05-F4A1-4313-829B-1B146B45C865}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbaStats.WebApi", "NbaStats.WebApi\NbaStats.WebApi.csproj", "{C594FF05-F4A1-4313-829B-1B146B45C865}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NbaStats.DAL", "NbaStats.DAL\NbaStats.DAL.csproj", "{B4D4E60E-55A8-42EA-862E-AD32725F8DB5}"
 EndProject
