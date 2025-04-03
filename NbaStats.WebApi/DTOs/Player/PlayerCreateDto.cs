@@ -21,7 +21,7 @@ public class PlayerCreateDto
     [Range(1, 3)]
     public decimal Height { get; set; }
     
-    [Range(50, 200)]
+    [Range(50, 250)]
     public decimal Weight { get; set; }
     
     public DateTime BirthDate { get; set; }

@@ -22,7 +22,7 @@ public class Service<T> : IService<T> where T : class
         return await repository.GetByIdAsync(id);
     }
 
-    public virtual async Task<bool> AddAsync(T entity)
+    public virtual async Task<T?> AddAsync(T entity)
     {
         return await repository.AddAsync(entity);
     }

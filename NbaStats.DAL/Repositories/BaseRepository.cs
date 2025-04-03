@@ -23,11 +23,18 @@ public abstract class BaseRepository<T> : IRepository<T> where T : class
         return await dbSet.FindAsync(id);
     }
 
-    public virtual async Task<bool> AddAsync(T entity)
+    public virtual async Task<T?> AddAsync(T entity)
     {
-     await dbSet.AddAsync(entity);
-     var affectedRows = await context.SaveChangesAsync();
-     return affectedRows > 0;
+    try
+    {
+        await dbSet.AddAsync(entity);
+        await context.SaveChangesAsync();
+    }
+    catch (Exception ex)
+    {
+        return null;
+    }
+    return entity;
     }
 
     public virtual async Task<bool> UpdateAsync(T entity)
