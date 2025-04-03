@@ -20,6 +20,8 @@ public class PlayerSeasonAverage
     public decimal AvgTurnovers { get; set; }
 
     public decimal AvgMinutesPlayed { get; set; }
+    
+    public decimal AvgBlocks { get; set; }
 
     public virtual required Player Player { get; set; }
 

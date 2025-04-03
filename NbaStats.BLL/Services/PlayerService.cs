@@ -1,11 +1,12 @@
 ﻿using NbaStats.BLL.DTOs;
+using NbaStats.BLL.Interfaces;
 using NbaStats.BLL.Mappers;
 using NbaStats.DAL.Data;
 using NbaStats.DAL.Interfaces;
 
 namespace NbaStats.BLL.Services;
 
-public class PlayerService : Service<Player>
+public class PlayerService : Service<Player>, IPlayerService
 {
     private readonly IPlayerRepository playerRepository;
     private readonly ITeamRepository teamRepository;

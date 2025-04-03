@@ -27,6 +27,10 @@ public class PlayerStat
     public int Rebounds { get; set; }
 
     public int Steals { get; set; }
+    
+    public int Turnovers { get; set; }
+    
+    public int Blocks { get; set; }
 
     public decimal MinutesPlayed { get; set; }
 

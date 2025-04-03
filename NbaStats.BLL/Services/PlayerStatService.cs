@@ -1,9 +1,10 @@
-﻿using NbaStats.DAL.Interfaces;
+﻿using NbaStats.BLL.Interfaces;
+using NbaStats.DAL.Interfaces;
 using NbaStats.DAL.Data;
 
 namespace NbaStats.BLL.Services;
 
-public class PlayerStatService : Service<PlayerStat>
+public class PlayerStatService : Service<PlayerStat>, IPlayerStatService
 {
     private readonly IPlayerStatRepository playerStatRepository;
     public PlayerStatService(IPlayerStatRepository repository) : base(repository)

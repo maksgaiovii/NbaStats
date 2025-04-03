@@ -15,6 +15,10 @@ public class TeamSeasonAverage
     public decimal AvgRebounds { get; set; }
 
     public decimal AvgTurnovers { get; set; }
+    
+    public decimal AvgSteals { get; set; }
+    
+    public decimal AvgBlocks { get; set; }
 
     public virtual required Season Season { get; set; }
 

@@ -31,6 +31,10 @@ public class TeamStat
     public int Rebounds { get; set; }
 
     public int Steals { get; set; }
+    
+    public int Turnovers { get; set; }
+    
+    public int Blocks { get; set; }
 
     public virtual required Match Match { get; set; }
 
