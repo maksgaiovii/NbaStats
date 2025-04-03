@@ -8,12 +8,13 @@ public static class PlayerCreateDtoMapper
 {
     public static Player ToEntity(PlayerCreateDto dto, Team team)
     {
+        
         return new Player
         {
             Name = dto.Name,
             Surname = dto.Surname,
             Position = dto.Position,
-            TeamId = dto.TeamId,
+            TeamId = team.TeamId,
             Height = dto.Height,
             Weight = dto.Weight,
             BirthDate = dto.BirthDate,

@@ -37,6 +37,12 @@ public class TeamRepository : BaseRepository<Team>, ITeamRepository
             .ToListAsync();
     }
 
+    public async Task<Team> GetTeamByNameAsync(string teamName)
+    {
+        return await context.Set<Team>()
+            .FirstOrDefaultAsync(t => t.Name!.ToLower() == teamName.ToLower()) ?? throw new InvalidOperationException();
+    }
+
     public async Task<IEnumerable<Team>> GetTeamsByDivisionAsync(string divisionName)
     {
         return await context.Set<Team>()

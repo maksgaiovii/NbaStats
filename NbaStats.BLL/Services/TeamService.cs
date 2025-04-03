@@ -34,4 +34,9 @@ public class TeamService : Service<Team>, ITeamService
     {
         return await teamRepository.GetTeamsWithMostStatAverageAsync(topN, statSelector);
     }
+
+    public async Task<Team> GetTeamByNameAsync(string teamName)
+    {
+        return await teamRepository.GetTeamByNameAsync(teamName);
+    }
 }

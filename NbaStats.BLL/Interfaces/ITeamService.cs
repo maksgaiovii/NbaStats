@@ -14,4 +14,6 @@ public interface ITeamService: IService<Team>
     
     Task<IEnumerable<Team>> GetTeamsWithMostStatAverageAsync(int topN, 
         Expression<Func<TeamSeasonAverage, double>> statSelector);
+    
+    Task<Team> GetTeamByNameAsync(string teamName);
 }

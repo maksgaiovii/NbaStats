@@ -9,4 +9,10 @@ public class SeasonRepository:  BaseRepository<Season>, ISeasonRepository
     public SeasonRepository(DbContext context) : base(context)
     {
     }
+
+    public Task<Season?> GetSeasonByYearAsync(int year)
+    {
+        return context.Set<Season>()
+            .FirstOrDefaultAsync(s => s.Year == year) ?? throw new InvalidOperationException();
+    }
 }

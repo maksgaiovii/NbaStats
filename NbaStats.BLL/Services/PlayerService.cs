@@ -20,10 +20,10 @@ public class PlayerService : Service<Player>, IPlayerService
 
     public async Task<PlayerDto> CreatePlayerAsync(PlayerCreateDto playerDto)
     {
-        var team = await teamRepository.GetByIdAsync(playerDto.TeamId);
+        var team = await teamRepository.GetTeamByNameAsync(playerDto.TeamName);
         if (team == null)
         {
-            throw new ArgumentException($"Team with ID {playerDto.TeamId} not found");
+            throw new ArgumentException($"Team with name {playerDto.TeamName} not found");
         }
 
         var playerEntity = PlayerCreateDtoMapper.ToEntity(playerDto, team);
@@ -39,16 +39,16 @@ public class PlayerService : Service<Player>, IPlayerService
             throw new ArgumentException($"Player with ID {id} not found");
         }
 
-        var team = await teamRepository.GetByIdAsync(playerDto.TeamId);
+        var team = await teamRepository.GetTeamByNameAsync(playerDto.TeamName);
         if (team == null)
         {
-            throw new ArgumentException($"Team with ID {playerDto.TeamId} not found");
+            throw new ArgumentException($"Team with name {playerDto.TeamName} not found");
         }
 
         existingPlayer.Name = playerDto.Name;
         existingPlayer.Surname = playerDto.Surname;
         existingPlayer.Position = playerDto.Position;
-        existingPlayer.TeamId = playerDto.TeamId;
+        existingPlayer.TeamId = team.TeamId;
         existingPlayer.Team = team;
         existingPlayer.Height = playerDto.Height;
         existingPlayer.Weight = playerDto.Weight;

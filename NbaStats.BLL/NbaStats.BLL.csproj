@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NbaStats.Core\NbaStats.Core.csproj" />
       <ProjectReference Include="..\NbaStats.DAL\NbaStats.DAL.csproj" />
     </ItemGroup>
 

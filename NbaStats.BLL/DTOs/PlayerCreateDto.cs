@@ -16,7 +16,7 @@ public class PlayerCreateDto
     public string Position { get; set; }
     
     [Required]
-    public int TeamId { get; set; }
+    public string TeamName { get; set; }
     
     [Range(1, 3)]
     public decimal Height { get; set; }
