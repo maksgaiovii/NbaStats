@@ -22,7 +22,7 @@
             <tbody>
             @foreach (var match in await lastMatches)
             {
-                <tr>
+                <tr onclick="window.location='/Match?id=@match.MatchId'" style="cursor:pointer;">
                     <td>@match.Date.ToString("yyyy-MM-dd")</td>
                     <td><a href="/Team?teamId=@match.HomeTeam.TeamId">@match.HomeTeam.Name</a></td>
                     <td>@match.HomeScore</td>

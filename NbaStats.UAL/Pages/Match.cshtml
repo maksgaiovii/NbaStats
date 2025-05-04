@@ -1,0 +1,52 @@
+﻿@page
+@using NbaStats.BLL.Interfaces
+@model NbaStats.UAL.Pages.Match
+@inject IPlayerStatService PlayerStatService
+@inject IPlayerService PlayerService
+@inject IMatchService MatchService
+@{
+    Layout = null;
+    var matchId = Convert.ToInt32(HttpContext.Request.Query["id"]);
+    var playerStats = await PlayerStatService.GetPlayerStatsByGameAsync(matchId);
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Player Stats</title>
+</head>
+<body>
+<div class="card">
+    <div class="card-header">
+        <h4 class="mb-0">Player Stats for Match</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+        @if (playerStats != null && playerStats.Any())
+        {
+            @foreach (var stat in playerStats)
+            {
+                <li class="list-group-item">
+                    <strong>Player:</strong> @((await PlayerService.GetByIdAsync(stat.PlayerId)).Name), 
+                    <strong>Points:</strong> @stat.Points,
+                    <strong>Rebounds:</strong> @stat.Rebounds,
+                    <strong>Assists:</strong> @stat.Assists,
+                    <strong>Steals:</strong> @stat.Steals,
+                    <strong>Blocks:</strong> @stat.Blocks,
+                    <strong>Turnovers:</strong> @stat.Turnovers,
+                    <strong>Field Goals Made:</strong> @stat.FgMade,
+                    <strong>Field Goals Attempted:</strong> @stat.FgAttempted,
+                    <strong>Three Pointers Made:</strong> @stat.ThreePointersMade,
+                    <strong>Three Pointers Attempted:</strong> @stat.ThreePointersAttempted,
+                    <strong>Free Throws Made:</strong> @stat.FreeThrowsMade,
+                    <strong>Free Throws Attempted:</strong> @stat.FreeThrowsAttempted,
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item">No player stats available for this match.</li>
+        }
+    </ul>
+</div>
+</body>
+</html>
