@@ -1,0 +1,34 @@
+﻿@page
+@using NbaStats.BLL.Interfaces
+@inject ITeamService TeamService
+@inject IPlayerService PlayerService
+@{
+    var teamId = Convert.ToInt32(HttpContext.Request.Query["teamId"]);
+    var team = await TeamService.GetByIdAsync(teamId);
+    ViewData["Title"] = $"{team.Name} - Team Info";
+}
+<title>@team.Name - Team Info</title>
+<div class="container mt-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title">@team.Name</h2>
+            <p class="card-text"><strong>City:</strong> @team.City</p>
+            <p class="card-text"><strong>Conference:</strong> @team.Conference</p>
+            <p class="card-text"><strong>Division:</strong> @team.Division</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4 class="mb-0">Players</h4>
+        </div>
+        <ul class="list-group list-group-flush">
+            @{
+                var players = await PlayerService.GetPlayersByTeamAsync(teamId);
+            }
+            @foreach (var player in players)
+            {
+                <li class="list-group-item">@player.Name</li>
+            }
+        </ul>
+    </div>
+</div>

@@ -12,8 +12,7 @@ public class MatchRepository : BaseRepository<Match>, IMatchRepository
 
    public async Task<IEnumerable<Match>> GetMatchesPlayedLastNightAsync()
     {
-        var lastNight = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-1).Date);
-        return await dbSet.Where(m => m.Date >= lastNight).ToListAsync();
+        return await dbSet.Include(m => m.HomeTeam).Include(m => m.AwayTeam).OrderByDescending(m => m.Date).Take(10).ToListAsync();
     }
     
     public async Task<IEnumerable<Match>> GetMatchesPlayedBySeasonAsync(int seasonId)
