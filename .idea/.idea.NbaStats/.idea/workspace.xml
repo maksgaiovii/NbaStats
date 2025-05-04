@@ -19,10 +19,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="Player page added">
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Match.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Match.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Index.cshtml" afterDir="false" />
+    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="Match page added">
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Teams.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Teams.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +335,7 @@
       <workItem from="1743750608820" duration="2016000" />
       <workItem from="1745327095427" duration="109000" />
       <workItem from="1746348135396" duration="10235000" />
-      <workItem from="1746372624623" duration="7030000" />
+      <workItem from="1746372624623" duration="7642000" />
     </task>
     <task id="LOCAL-00001" summary="Project set-up">
       <option name="closed" value="true" />
@@ -498,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746384125673</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Match page added">
+      <option name="closed" value="true" />
+      <created>1746384787855</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1746384787855</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,6 +546,7 @@
     <MESSAGE value="ETL process for each table projects added" />
     <MESSAGE value="UI part of project set up" />
     <MESSAGE value="Player page added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player page added" />
+    <MESSAGE value="Match page added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Match page added" />
   </component>
 </project>

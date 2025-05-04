@@ -1,0 +1,19 @@
+﻿@page
+@using NbaStats.BLL.Interfaces
+@model NbaStats.UAL.Pages.Teams
+@inject ITeamService TeamService
+
+@{
+    ViewData["Title"] = "Teams";
+    var teams = await TeamService.GetAllAsync();
+}
+<h2>Teams</h2>
+
+<ul>
+@foreach (var team in teams)
+{
+    <li>
+        <a href="/Team?teamId=@team.TeamId">@team.Name</a>
+    </li>
+}
+</ul>
