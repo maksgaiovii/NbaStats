@@ -1,4 +1,6 @@
-﻿namespace NbaStats.DAL.Data;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NbaStats.DAL.Data;
 
 public class TeamSeasonAverage
 {
@@ -14,10 +16,12 @@ public class TeamSeasonAverage
 
     public decimal AvgRebounds { get; set; }
 
+    [Column("avgturnovers")]
     public decimal AvgTurnovers { get; set; }
     
     public decimal AvgSteals { get; set; }
     
+    [Column("avgblocks")]
     public decimal AvgBlocks { get; set; }
 
     public virtual required Season Season { get; set; }

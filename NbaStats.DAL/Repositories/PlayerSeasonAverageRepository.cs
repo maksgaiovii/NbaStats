@@ -11,32 +11,38 @@ public class PlayerSeasonAverageRepository : BaseRepository<PlayerSeasonAverage>
     {
     }
 
-    public async  Task<bool> UpdateStatAsync(int playerSeasonAverageId, Expression<Func<PlayerSeasonAverage, double>> statSelector, double newValue)
+    public async Task<bool> UpdateStatAsync(int playerSeasonAverageId,
+        Expression<Func<PlayerSeasonAverage, double>> statSelector, double newValue)
     {
-        
         var playerSeasonAverage = await context.Set<PlayerSeasonAverage>().FindAsync(playerSeasonAverageId);
         if (playerSeasonAverage == null)
             return false;
 
         var memberExpression = (MemberExpression)statSelector.Body;
         var propertyName = memberExpression.Member.Name;
-    
+
         var property = typeof(PlayerSeasonAverage).GetProperty(propertyName);
         if (property == null)
             return false;
-        
+
         property.SetValue(playerSeasonAverage, newValue);
-    
+
         return await context.SaveChangesAsync() > 0;
     }
 
-    public  async Task<IEnumerable<PlayerSeasonAverage>> GetPlayerSeasonAveragesByPlayerAsync(int playerId)
+    public async Task<IEnumerable<PlayerSeasonAverage>> GetPlayerSeasonAveragesByPlayerAsync(int playerId)
     {
-        return await dbSet.Where(psa => psa.PlayerId == playerId).OrderByDescending(psa => psa.Season.Year).Take(1).ToListAsync();
+        return await dbSet.Include(psa => psa.Season)
+            .Where(psa => psa.PlayerId == playerId)
+            .OrderByDescending(psa => psa.Season.Year)
+            .Take(5)
+            .ToListAsync();
     }
 
-    public  async Task<IEnumerable<PlayerSeasonAverage>> GetPlayerSeasonAveragesBySeasonAsync(int seasonId, int playerId)
+    public async Task<IEnumerable<PlayerSeasonAverage>> GetPlayerSeasonAveragesBySeasonAsync(int seasonId, int playerId)
     {
-        return await dbSet.Where(psa => psa.PlayerId == playerId && psa.SeasonId==seasonId).ToListAsync();
+        return await dbSet.Include(psa => psa.Season)
+            .Where(psa => psa.PlayerId == playerId && psa.SeasonId == seasonId)
+            .ToListAsync();
     }
 }

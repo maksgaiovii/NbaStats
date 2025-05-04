@@ -16,6 +16,16 @@ namespace NbaStats.UAL
             services.AddScoped<ITeamRepository, TeamRepository>();
             services.AddScoped<IPlayerService, PlayerService>();
             services.AddScoped<IPlayerRepository, PlayerRepository>();
+            services.AddScoped<ISeasonService, SeasonService>();
+            services.AddScoped<ISeasonRepository, SeasonRepository>();
+            services.AddScoped<ITeamStatService, TeamStatService>();
+            services.AddScoped<ITeamStatRepository, TeamStatRepository>();
+            services.AddScoped<ITeamSeasonAverageService, TeamSeasonAverageService>();
+            services.AddScoped<ITeamSeasonAverageRepository, TeamSeasonAverageRepository>();
+            services.AddScoped<IPlayerStatService, PlayerStatService>();
+            services.AddScoped<IPlayerStatRepository, PlayerStatRepository>();
+            services.AddScoped<IPlayerSeasonAverageService, PlayerSeasonAverageService>();
+            services.AddScoped<IPlayerSeasonAverageRepository, PlayerSeasonAverageRepository>();
         }
     }
 }

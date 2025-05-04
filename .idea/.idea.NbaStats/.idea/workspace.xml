@@ -19,16 +19,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="ETL process for each table projects added">
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/ServiceRegistration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IPlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IPlayerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Services/PlayerService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Services/PlayerService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Migrations/20250403180747_WeightRangeChanged.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Migrations/20250403180747_WeightRangeChanged.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Repositories/MatchRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Repositories/MatchRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.sln" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.sln" afterDir="false" />
+    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="UI part of project set up">
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Player.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Player.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/PlayerSeasonAverage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/PlayerSeasonAverage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/PlayerStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/PlayerStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/TeamSeasonAverage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/TeamSeasonAverage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/TeamStat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/TeamStat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Repositories/PlayerSeasonAverageRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Repositories/PlayerSeasonAverageRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/ServiceRegistration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/ServiceRegistration.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +345,7 @@
       <workItem from="1743750608820" duration="2016000" />
       <workItem from="1745327095427" duration="109000" />
       <workItem from="1746348135396" duration="10235000" />
-      <workItem from="1746372624623" duration="3712000" />
+      <workItem from="1746372624623" duration="6587000" />
     </task>
     <task id="LOCAL-00001" summary="Project set-up">
       <option name="closed" value="true" />
@@ -488,7 +491,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746372757023</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="UI part of project set up">
+      <option name="closed" value="true" />
+      <created>1746376653635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746376653635</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,6 +538,7 @@
     <MESSAGE value="Refactor project structure; rename files and update namespaces for consistency" />
     <MESSAGE value="Refactor repository and service methods to return nullable types; add PlayersController and service registration" />
     <MESSAGE value="ETL process for each table projects added" />
-    <option name="LAST_COMMIT_MESSAGE" value="ETL process for each table projects added" />
+    <MESSAGE value="UI part of project set up" />
+    <option name="LAST_COMMIT_MESSAGE" value="UI part of project set up" />
   </component>
 </project>

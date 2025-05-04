@@ -1,4 +1,6 @@
-﻿namespace NbaStats.DAL.Data;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NbaStats.DAL.Data;
 
 public class TeamStat
 {
@@ -7,10 +9,6 @@ public class TeamStat
     public int MatchId { get; set; }
 
     public int TeamId { get; set; }
-
-    public int Wins { get; set; }
-
-    public int Losses { get; set; }
 
     public int FgMade { get; set; }
 
@@ -32,8 +30,10 @@ public class TeamStat
 
     public int Steals { get; set; }
     
+    [Column("turnovers")]
     public int Turnovers { get; set; }
     
+    [Column("blocks")]
     public int Blocks { get; set; }
 
     public virtual required Match Match { get; set; }

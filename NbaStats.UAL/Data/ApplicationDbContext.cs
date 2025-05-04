@@ -294,9 +294,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.FreeThrowsMade)
                 .HasDefaultValue(0)
                 .HasColumnName("freethrowsmade");
-            entity.Property(e => e.Losses)
-                .HasDefaultValue(0)
-                .HasColumnName("losses");
             entity.Property(e => e.MatchId).HasColumnName("matchid");
             entity.Property(e => e.Points)
                 .HasDefaultValue(0)
@@ -314,10 +311,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.ThreePointersMade)
                 .HasDefaultValue(0)
                 .HasColumnName("threepointersmade");
-            entity.Property(e => e.Wins)
-                .HasDefaultValue(0)
-                .HasColumnName("wins");
-
             entity.HasOne(d => d.Match).WithMany(p => p.TeamStats)
                 .HasForeignKey(d => d.MatchId)
                 .OnDelete(DeleteBehavior.Cascade)

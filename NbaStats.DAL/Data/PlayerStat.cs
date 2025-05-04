@@ -1,4 +1,6 @@
-﻿namespace NbaStats.DAL.Data;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace NbaStats.DAL.Data;
 
 public class PlayerStat
 {
@@ -28,8 +30,10 @@ public class PlayerStat
 
     public int Steals { get; set; }
     
+    [Column("turnovers")]
     public int Turnovers { get; set; }
     
+    [Column("blocks")]
     public int Blocks { get; set; }
 
     public decimal MinutesPlayed { get; set; }

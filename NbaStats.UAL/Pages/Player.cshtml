@@ -1,0 +1,83 @@
+﻿@page
+@using NbaStats.BLL.Interfaces
+@inject IPlayerService PlayerService
+@inject IPlayerStatService PlayerStatService
+@inject IPlayerSeasonAverageService PlayerSeasonAverageService
+@{
+    Layout = null;
+    var playerId = Convert.ToInt32(HttpContext.Request.Query["id"]);
+    var player = await PlayerService.GetByIdAsync(playerId);
+    var lastMatches = await PlayerStatService.GetPlayerStatsByPlayerAsync(playerId); // Assumes such a method exists
+    var seasonAverages = await PlayerSeasonAverageService.GetPlayerSeasonAveragesByPlayerAsync(playerId); // Adjust season logic as needed
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="mb-0">Last 5 Matches</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+        @if (lastMatches != null && lastMatches.Any())
+        {
+            @foreach (var stat in lastMatches.Take(5))
+            {
+                <li class="list-group-item">
+                    <strong>Points:</strong> @stat.Points,
+                    <strong>Rebounds:</strong> @stat.Rebounds,
+                    <strong>Assists:</strong> @stat.Assists,
+                    <strong>Steals:</strong> @stat.Steals,
+                    <strong>Blocks:</strong> @stat.Blocks,
+                    <strong>Turnovers:</strong> @stat.Turnovers,
+                    <strong>Field Goals Made:</strong> @stat.FgMade,
+                    <strong>Field Goals Attempted:</strong> @stat.FgAttempted,
+                    <strong>Three Pointers Made:</strong> @stat.ThreePointersMade,
+                    <strong>Three Pointers Attempted:</strong> @stat.ThreePointersAttempted,
+                    <strong>Free Throws Made:</strong> @stat.FreeThrowsMade,
+                    <strong>Free Throws Attempted:</strong> @stat.FreeThrowsAttempted,
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item">No recent matches available.</li>
+        }
+    </ul>
+</div>
+<div class="card mt-4">
+    <div class="card-header">
+        <h4 class="mb-0">Season Averages (@DateTime.Now.Year)</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+        @if (seasonAverages != null && seasonAverages.Any())
+        {
+            @foreach (var avg in seasonAverages)
+            {
+                <li class="list-group-item">
+                    <strong>Season:</strong> @avg.Season.Year,
+                    <strong>Points:</strong> @avg.AvgPoints,
+                    <strong>Rebounds:</strong> @avg.AvgRebounds,
+                    <strong>Assists:</strong> @avg.AvgAssists,
+                    <strong>Steals:</strong> @avg.AvgSteals,
+                    <strong>Blocks:</strong> @avg.AvgBlocks,
+                    <strong>Turnovers:</strong> @avg.AvgTurnovers,
+                </li>
+            }
+        }
+        else
+        {
+            <li class="list-group-item">No season averages available.</li>
+        }
+    </ul>
+</div>
+<div class="card mt-4">
+    <div class="card-header">
+        <h4 class="mb-0">Player Info</h4>
+    </div>
+<div class="card-body">
+    <h5 class="card-title">@player.Name</h5>
+    <p class="card-text"><strong>Position:</strong> @player.Position</p>
+    <p class="card-text"><strong>Height:</strong> @player.Height</p>
+    <p class="card-text"><strong>Weight:</strong> @player.Weight</p>
+    <p class="card-text"><strong>Birth Date:</strong> @player.BirthDate.ToString("yyyy-MM-dd")</p>
+</div>
+</div>
+
