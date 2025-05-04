@@ -1,0 +1,48 @@
+﻿@page
+@model NbaStats.UAL.Pages.Matches
+
+@{
+    ViewData["Title"] = "Matches";
+}
+
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="date" name="searchDate" class="form-control" value="@(Request.Query["searchDate"])" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+<h2>Matches</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var match in Model.MatchesByDate)
+    {
+        <tr onclick="window.location='/Match?id=@match.MatchId'" style="cursor:pointer;">
+            <td>@match.Date.ToString("yyyy-MM-dd")</td>
+            <td><a href="/Team?teamId=@match.HomeTeam.TeamId">@match.HomeTeam.Name</a></td>
+            <td>@match.HomeScore</td>
+            <td><a href="/Team?teamId=@match.AwayTeam.TeamId">@match.AwayTeam.Name</a></td>
+            <td>@match.AwayScore</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<nav>
+    <ul class="pagination">
+        <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+            <a class="page-link" href="?page=@(Model.CurrentPage - 1)@(Request.Query["searchDate"].Count > 0 ? $"&searchDate={Request.Query["searchDate"]}" : "")">Previous</a>
+        </li>
+        <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+            <a class="page-link" href="?page=@(Model.CurrentPage + 1)@(Request.Query["searchDate"].Count > 0 ? $"&searchDate={Request.Query["searchDate"]}" : "")">Next</a>
+        </li>
+    </ul>
+</nav>

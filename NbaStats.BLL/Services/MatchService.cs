@@ -44,4 +44,9 @@ public class MatchService : Service<Match>, IMatchService
     {
         return await matchRepository.GetMatchesPlayedByTeamInSeasonAsync(teamId, seasonId);
     }
+
+    public async Task<IEnumerable<Match>> GetAllWithTeamsAsync()
+    {
+        return await matchRepository.GetAllWithTeamsAsync();
+    }
 }

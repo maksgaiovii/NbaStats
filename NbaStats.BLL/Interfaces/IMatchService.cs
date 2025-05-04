@@ -15,4 +15,7 @@ public interface IMatchService : IService<Match>
     public Task<IEnumerable<Match>> GetMatchesPlayedByPlayerInSeasonAsync(int playerId, int seasonId);
     
     public Task<IEnumerable<Match>> GetMatchesPlayedByTeamInSeasonAsync(int teamId, int seasonId);
+    
+    public Task<IEnumerable<Match>> GetAllWithTeamsAsync();
+
 }

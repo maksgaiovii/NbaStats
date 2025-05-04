@@ -16,4 +16,6 @@ public interface IMatchRepository : IRepository<Match>
     
     public Task<IEnumerable<Match>> GetMatchesPlayedByTeamInSeasonAsync(int teamId, int seasonId);
     
+    public Task<IEnumerable<Match>> GetAllWithTeamsAsync();
+    
 }

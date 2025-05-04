@@ -51,4 +51,11 @@ public class MatchRepository : BaseRepository<Match>, IMatchRepository
     {
         return await dbSet.Where(m => m.SeasonId == seasonId && (m.HomeTeamId == teamId || m.AwayTeamId == teamId)).ToListAsync();
     }
+
+    public async Task<IEnumerable<Match>> GetAllWithTeamsAsync()
+    {
+        return await dbSet.Include(m => m.HomeTeam)
+            .Include(m => m.AwayTeam)
+            .ToListAsync();
+    }
 }
