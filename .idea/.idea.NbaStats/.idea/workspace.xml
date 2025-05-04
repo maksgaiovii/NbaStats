@@ -19,16 +19,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="Teams page and button added">
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Matches.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Matches.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IMatchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IMatchService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Services/MatchService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Services/MatchService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Interfaces/IMatchRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Interfaces/IMatchRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Repositories/MatchRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Repositories/MatchRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Shared/_Layout.cshtml" afterDir="false" />
-    </list>
+    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -341,7 +332,7 @@
       <workItem from="1743750608820" duration="2016000" />
       <workItem from="1745327095427" duration="109000" />
       <workItem from="1746348135396" duration="10235000" />
-      <workItem from="1746372624623" duration="9820000" />
+      <workItem from="1746372624623" duration="10110000" />
     </task>
     <task id="LOCAL-00001" summary="Project set-up">
       <option name="closed" value="true" />
@@ -519,7 +510,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746385221648</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Matches page and button added">
+      <option name="closed" value="true" />
+      <created>1746387887880</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1746387887880</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,6 +561,7 @@
     <MESSAGE value="Player page added" />
     <MESSAGE value="Match page added" />
     <MESSAGE value="Teams page and button added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Teams page and button added" />
+    <MESSAGE value="Matches page and button added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Matches page and button added" />
   </component>
 </project>

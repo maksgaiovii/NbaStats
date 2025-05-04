@@ -57,5 +57,9 @@ public class PlayerService : Service<Player>, IPlayerService
         {
             return await playerRepository.GetPlayersWithMostStatAsync(topN, statSelector);
         }
-    
+
+        public async  Task<IEnumerable<Player>> GetAllWithTeamAsync()
+        {
+            return await playerRepository.GetAllWithTeamAsync();
+        }
 }

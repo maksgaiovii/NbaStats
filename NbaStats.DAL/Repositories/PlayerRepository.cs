@@ -68,4 +68,10 @@ public class PlayerRepository : BaseRepository<Player>, IPlayerRepository
             .Select(ps => ps.Player)
             .ToListAsync())!;
     }
+
+    public async Task<IEnumerable<Player>> GetAllWithTeamAsync()
+    {
+        return await dbSet.Include(p => p.Team)
+            .ToListAsync();
+    }
 }

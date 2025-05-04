@@ -25,4 +25,6 @@ public interface IPlayerRepository : IRepository<Player>
     Task<IEnumerable<Player>> GetPlayersWithMostStatAsync(int topN,
         Expression<Func<PlayerStat, double>> statSelector);
     
+    Task<IEnumerable<Player>> GetAllWithTeamAsync();
+    
 }
