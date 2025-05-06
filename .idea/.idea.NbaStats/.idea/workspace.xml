@@ -19,7 +19,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="" />
+    <list default="true" id="99051f8e-48a8-4cb8-bb7e-41b51ad76314" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminDashboard.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminDashboard.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminMatch.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminMatch.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminMatches.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminMatches.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminPlayer.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminPlayer.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminPlayers.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminPlayers.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminTeam.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminTeam.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminTeams.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/AdminPages/AdminTeams.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Login.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Login.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Logout.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Logout.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Register.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Register.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NbaStats/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IUserPreferenceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IUserPreferenceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IUserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Interfaces/IUserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Services/UserPreferenceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Services/UserPreferenceService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.BLL/Services/UserService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.BLL/Services/UserService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Data/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Data/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Interfaces/IUserPreferencesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Interfaces/IUserPreferencesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Interfaces/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Interfaces/IUserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Repositories/BaseRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Repositories/BaseRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Repositories/UserPreferencesRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Repositories/UserPreferencesRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.DAL/Repositories/UserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.DAL/Repositories/UserRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Data/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Data/ApplicationDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Match.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Match.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Matches.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Matches.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Matches.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Matches.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Player.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Player.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Player.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Player.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Players.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Players.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Players.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Players.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Shared/_LoginPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Shared/_LoginPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Team.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/Pages/Teams.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/Pages/Teams.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NbaStats.UAL/ServiceRegistration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NbaStats.UAL/ServiceRegistration.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +93,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$APPLICATION_HOME_DIR$/lib/app.jar!/resources/html5-schema/html5/web-forms2.rnc" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/54ee578abb4f4410ae358960579d8a0f13910/d2/52e465be/AuthorizationAppBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/96a4cc66aa48dda8a9d8be8febec4a769fc143f7a86dd53ecdebfb9c3177d/ControllerBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/NbaStats.WebApi/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,7 +106,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2uzIc4Ut2kHRMVxm0sOrUz4tOgb" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -333,6 +385,10 @@
       <workItem from="1745327095427" duration="109000" />
       <workItem from="1746348135396" duration="10235000" />
       <workItem from="1746372624623" duration="10110000" />
+      <workItem from="1746394845194" duration="1323000" />
+      <workItem from="1746430371609" duration="4072000" />
+      <workItem from="1746445865611" duration="3626000" />
+      <workItem from="1746455400750" duration="18482000" />
     </task>
     <task id="LOCAL-00001" summary="Project set-up">
       <option name="closed" value="true" />
@@ -518,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746387887880</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Players page and button added">
+      <option name="closed" value="true" />
+      <created>1746396005136</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1746396005136</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,6 +626,7 @@
     <MESSAGE value="Match page added" />
     <MESSAGE value="Teams page and button added" />
     <MESSAGE value="Matches page and button added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Matches page and button added" />
+    <MESSAGE value="Players page and button added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Players page and button added" />
   </component>
 </project>

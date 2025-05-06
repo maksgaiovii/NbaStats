@@ -1,52 +1,99 @@
 ﻿@page
-@using NbaStats.BLL.Interfaces
-@model NbaStats.UAL.Pages.Match
-@inject IPlayerStatService PlayerStatService
-@inject IPlayerService PlayerService
-@inject IMatchService MatchService
-@{
-    Layout = null;
-    var matchId = Convert.ToInt32(HttpContext.Request.Query["id"]);
-    var playerStats = await PlayerStatService.GetPlayerStatsByGameAsync(matchId);
-}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Match Player Stats</title>
-</head>
-<body>
-<div class="card">
-    <div class="card-header">
-        <h4 class="mb-0">Player Stats for Match</h4>
-    </div>
-    <ul class="list-group list-group-flush">
-        @if (playerStats != null && playerStats.Any())
-        {
-            @foreach (var stat in playerStats)
-            {
-                <li class="list-group-item">
-                    <strong>Player:</strong> @((await PlayerService.GetByIdAsync(stat.PlayerId)).Name), 
-                    <strong>Points:</strong> @stat.Points,
-                    <strong>Rebounds:</strong> @stat.Rebounds,
-                    <strong>Assists:</strong> @stat.Assists,
-                    <strong>Steals:</strong> @stat.Steals,
-                    <strong>Blocks:</strong> @stat.Blocks,
-                    <strong>Turnovers:</strong> @stat.Turnovers,
-                    <strong>Field Goals Made:</strong> @stat.FgMade,
-                    <strong>Field Goals Attempted:</strong> @stat.FgAttempted,
-                    <strong>Three Pointers Made:</strong> @stat.ThreePointersMade,
-                    <strong>Three Pointers Attempted:</strong> @stat.ThreePointersAttempted,
-                    <strong>Free Throws Made:</strong> @stat.FreeThrowsMade,
-                    <strong>Free Throws Attempted:</strong> @stat.FreeThrowsAttempted,
-                </li>
+    @using NbaStats.BLL.Interfaces
+    @model NbaStats.UAL.Pages.Match
+    @inject IPlayerStatService PlayerStatService
+    @inject IPlayerService PlayerService
+    @inject IMatchService MatchService
+    @{
+        Layout = null;
+        var matchId = Convert.ToInt32(HttpContext.Request.Query["id"]);
+        var playerStats = await PlayerStatService.GetPlayerStatsByGameAsync(matchId);
+    }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Match Player Stats</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <style>
+            body {
+                background-color: #f8f9fa;
             }
-        }
-        else
-        {
-            <li class="list-group-item">No player stats available for this match.</li>
-        }
-    </ul>
-</div>
-</body>
-</html>
+            .container {
+                margin-top: 40px;
+            }
+            .card {
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+            .header-title {
+                font-weight: 600;
+                font-size: 2rem;
+                color: #343a40;
+            }
+            .table th, .table td {
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="mb-4 text-center">
+                <span class="header-title">Match Player Stats</span>
+            </div>
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Player Stats for Match</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered mb-0">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Player</th>
+                                <th>Points</th>
+                                <th>Rebounds</th>
+                                <th>Assists</th>
+                                <th>Steals</th>
+                                <th>Blocks</th>
+                                <th>Turnovers</th>
+                                <th>FG Made</th>
+                                <th>FG Attempted</th>
+                                <th>3PT Made</th>
+                                <th>3PT Attempted</th>
+                                <th>FT Made</th>
+                                <th>FT Attempted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (playerStats != null && playerStats.Any())
+                            {
+                                foreach (var stat in playerStats)
+                                {
+                                    <tr>
+                                        <td>@((await PlayerService.GetByIdAsync(stat.PlayerId)).Name)</td>
+                                        <td>@stat.Points</td>
+                                        <td>@stat.Rebounds</td>
+                                        <td>@stat.Assists</td>
+                                        <td>@stat.Steals</td>
+                                        <td>@stat.Blocks</td>
+                                        <td>@stat.Turnovers</td>
+                                        <td>@stat.FgMade</td>
+                                        <td>@stat.FgAttempted</td>
+                                        <td>@stat.ThreePointersMade</td>
+                                        <td>@stat.ThreePointersAttempted</td>
+                                        <td>@stat.FreeThrowsMade</td>
+                                        <td>@stat.FreeThrowsAttempted</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="13" class="text-center text-muted">No player stats available for this match.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>

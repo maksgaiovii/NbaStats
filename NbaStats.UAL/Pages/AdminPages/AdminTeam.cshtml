@@ -1,0 +1,72 @@
+﻿@page
+@using NbaStats.BLL.Interfaces
+@inject ITeamService TeamService
+@inject IPlayerService PlayerService
+@model NbaStats.UAL.Pages.AdminTeam
+@{
+    var teamId = Convert.ToInt32(HttpContext.Request.Query["teamId"]);
+    var team = await TeamService.GetByIdAsync(teamId);
+    ViewData["Title"] = $"{team.Name} - Edit Team";
+}
+<title>@team.Name - Team Details</title>
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">@team.Name</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-page-handler="Update">
+                        <input type="hidden" name="TeamId" value="@team.TeamId"/>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Name</label>
+                            <input type="text" name="Name" value="@team.Name" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">City</label>
+                            <input type="text" name="City" value="@team.City" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Conference</label>
+                            <input type="text" name="Conference" value="@team.Conference" class="form-control"/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Division</label>
+                            <input type="text" name="Division" value="@team.Division" class="form-control"/>
+                        </div>
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-header bg-secondary text-white">
+                    <h4 class="mb-0">Players</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    @{
+                        var players = await PlayerService.GetPlayersByTeamAsync(teamId);
+                    }
+                    @if (players.Any())
+                    {
+                        foreach (var player in players)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <a href="/AdminPages/AdminPlayer?id=@player.PlayerId" class="text-decoration-none">@player.Name</a>
+                                <span class="badge bg-primary rounded-pill">@player.Position</span>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item text-muted">No players found for this team.</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

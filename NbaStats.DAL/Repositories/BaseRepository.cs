@@ -39,11 +39,12 @@ public abstract class BaseRepository<T> : IRepository<T> where T : class
 
     public virtual async Task<bool> UpdateAsync(T entity)
     {
-        var existingEntity = await context.Set<T>().FindAsync(entity);
-        if (existingEntity == null)
-            return false;
-
-        context.Entry(existingEntity).CurrentValues.SetValues(entity);
+        var entry = context.Entry(entity);
+        if (entry.State == EntityState.Detached)
+        {
+            dbSet.Attach(entity);
+            entry.State = EntityState.Modified;
+        }
         var affectedRows = await context.SaveChangesAsync();
         return affectedRows > 0;
     }

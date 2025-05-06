@@ -332,9 +332,6 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Email)
                 .HasMaxLength(100)
                 .HasColumnName("email");
-            entity.Property(e => e.Name)
-                .HasMaxLength(100)
-                .HasColumnName("name");
             entity.Property(e => e.Role)
                 .HasMaxLength(50)
                 .HasColumnName("role");

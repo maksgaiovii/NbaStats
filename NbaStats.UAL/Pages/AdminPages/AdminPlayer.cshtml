@@ -1,0 +1,62 @@
+﻿@page
+@model NbaStats.UAL.Pages.AdminPlayerModel
+@using NbaStats.DAL.Data
+@using NbaStats.UAL.Pages.Shared
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container mt-5">
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="card mb-4">
+            <div class="card-header">Last 5 Matches (Editable)</div>
+            <ul class="list-group list-group-flush">
+                @for (int i = 0; i < Model.LastMatches.Count; i++)
+                {
+                    <li class="list-group-item">
+                        <input type="hidden" asp-for="@Model.LastMatches[@i].PlayerId" />
+                        <input type="hidden" asp-for="@Model.LastMatches[@i].PlayerStatsId" />
+                        <input type="hidden" asp-for="@Model.LastMatches[@i].MatchId" />
+                        <div class="row g-2">
+                            <div class="col"><label>Points<input asp-for="LastMatches[i].Points" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>Rebounds<input asp-for="LastMatches[i].Rebounds" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>Assists<input asp-for="LastMatches[i].Assists" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>Steals<input asp-for="LastMatches[i].Steals" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>Blocks<input asp-for="LastMatches[i].Blocks" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>Turnovers<input asp-for="LastMatches[i].Turnovers" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>FG Made<input asp-for="LastMatches[i].FgMade" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>FG Attempted<input asp-for="LastMatches[i].FgAttempted" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>3PT Made<input asp-for="LastMatches[i].ThreePointersMade" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>3PT Attempted<input asp-for="LastMatches[i].ThreePointersAttempted" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>FT Made<input asp-for="LastMatches[i].FreeThrowsMade" class="form-control form-control-sm" /></label></div>
+                            <div class="col"><label>FT Attempted<input asp-for="LastMatches[i].FreeThrowsAttempted" class="form-control form-control-sm" /></label></div>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <div class="card-footer text-end">
+                <button type="submit" class="btn btn-success">Save All</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="card">
+        <div class="card-header">Player Info</div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Player?.Name</h5>
+            <p><strong>Position:</strong> @Model.Player?.Position</p>
+            <p><strong>Height:</strong> @Model.Player?.Height</p>
+            <p><strong>Weight:</strong> @Model.Player?.Weight</p>
+            <p><strong>Birth Date:</strong> @Model.Player?.BirthDate.ToString("yyyy-MM-dd")</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

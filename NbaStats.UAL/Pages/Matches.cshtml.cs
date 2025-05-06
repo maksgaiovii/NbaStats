@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace NbaStats.UAL.Pages
 {
@@ -38,6 +39,25 @@ namespace NbaStats.UAL.Pages
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize)
                 .ToList();
+        }
+        public async Task<IActionResult> OnGetExportAsync(string searchDate = null)
+        {
+            // Filter matches as in OnGetAsync
+var allMatches = await _matchService.GetAllWithTeamsAsync();
+var filteredMatches = string.IsNullOrWhiteSpace(searchDate)
+    ? allMatches
+    : allMatches.Where(m => m.Date.ToString("yyyy-MM-dd") == searchDate);
+var orderedMatches = filteredMatches.OrderByDescending(m => m.Date).ToList();
+var matches = orderedMatches.Take(PageSize).ToList();
+            var csv = new StringBuilder();
+            csv.AppendLine("Date,Home Team,Away Team,Home Score,Away Score");
+            foreach (var match in matches)
+            {
+                csv.AppendLine($"{match.Date:yyyy-MM-dd},{match.HomeTeam.Name},{match.AwayTeam.Name},{match.HomeScore},{match.AwayScore}");
+            }
+
+            var bytes = Encoding.UTF8.GetBytes(csv.ToString());
+            return File(bytes, "text/csv", "matches.csv");
         }
     }
 }

@@ -5,6 +5,7 @@
     @{
         ViewData["Title"] = "Home page";
         var lastMatches = MatchService.GetMatchesPlayedLastNightAsync();
+        var isAdmin = User.IsInRole("Admin");
     }
     
     <div class="text-center">

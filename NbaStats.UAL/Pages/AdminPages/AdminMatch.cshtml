@@ -1,0 +1,78 @@
+﻿@page
+@model NbaStats.UAL.Pages.AdminMatchModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editable Match Player Stats</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 40px;
+        }
+        .header-title {
+            font-weight: 600;
+            font-size: 2rem;
+            color: #343a40;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="mb-4 text-center">
+        <span class="header-title">Editable Match Player Stats</span>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Player</th>
+            <th>Points</th>
+            <th>Rebounds</th>
+            <th>Assists</th>
+            <th>Steals</th>
+            <th>Blocks</th>
+            <th>Turnovers</th>
+            <th>FG Made</th>
+            <th>FG Attempted</th>
+            <th>3PT Made</th>
+            <th>3PT Attempted</th>
+            <th>FT Made</th>
+            <th>FT Attempted</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var stat in Model.PlayerStats)
+        {
+            <tr>
+                <form method="post" asp-page-handler="Update">
+                    <input type="hidden" name="StatId" value="@stat.PlayerStatsId" />
+                    <td><strong>@Model.PlayerNames[stat.PlayerId]</strong></td>
+                    <td><input type="number" name="Points" value="@stat.Points" class="form-control" /></td>
+                    <td><input type="number" name="Rebounds" value="@stat.Rebounds" class="form-control" /></td>
+                    <td><input type="number" name="Assists" value="@stat.Assists" class="form-control" /></td>
+                    <td><input type="number" name="Steals" value="@stat.Steals" class="form-control" /></td>
+                    <td><input type="number" name="Blocks" value="@stat.Blocks" class="form-control" /></td>
+                    <td><input type="number" name="Turnovers" value="@stat.Turnovers" class="form-control" /></td>
+                    <td><input type="number" name="FgMade" value="@stat.FgMade" class="form-control" /></td>
+                    <td><input type="number" name="FgAttempted" value="@stat.FgAttempted" class="form-control" /></td>
+                    <td><input type="number" name="ThreePointersMade" value="@stat.ThreePointersMade" class="form-control" /></td>
+                    <td><input type="number" name="ThreePointersAttempted" value="@stat.ThreePointersAttempted" class="form-control" /></td>
+                    <td><input type="number" name="FreeThrowsMade" value="@stat.FreeThrowsMade" class="form-control" /></td>
+                    <td><input type="number" name="FreeThrowsAttempted" value="@stat.FreeThrowsAttempted" class="form-control" /></td>
+                    <td><button type="submit" class="btn btn-sm btn-success">Save</button></td>
+                </form>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
